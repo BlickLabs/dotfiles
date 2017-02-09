@@ -22,17 +22,12 @@ function systemInformation()  { # Get current host related info.
 alias lso="ls -alG | awk '{k=0;for(i=0;i<=8;i++)k+=((substr(\$1,i+2,1)~/[rwx]/)*2^(8-i));if(k)printf(\" %0o \",k);print}'"
 alias untarz='tar -xzf'
 alias untarj='tar -xjf'
-alias changeKeyboardMap="xmodmap ${DOTFILES_HOME}/.Xmodmap"
 alias linkNodeToBin='sudo ln -sf $(which node) /usr/bin/node'
 alias gitPrettyLog='git log --graph --abbrev-commit --decorate --format=format:"%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(magenta)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold cyan)%d%C(reset)"'
 alias gitBranchParent="git show-branch | grep '*' | grep -v '$(git rev-parse --abbrev-ref HEAD)' | head -n1 | sed 's/.*\[\(.*\)\].*/\1/' | sed 's/[\^~].*//'"
 alias gitRecentBranches='for k in `git branch | perl -pe s/^..//`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r'
 alias mostUsedCommands="history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head"
-alias runPM='java -Dorg.apache.el.parser.SKIP_IDENTIFIER_CHECK=true -Dorg.apache.jasper.compiler.Parser.STRICT_WHITESPACE=false  -Dusertransaction.class="com.skytouch.pm.config.SpringManualTransactionManager" -Dspring.config.location=$HOME/.conf-files/application-custom.yml -jar -Xdebug -Xrunjdwp:server=y,transport=dt_socket,suspend=n,address=3111 hos-pm/target/hos-pm-8.7.0.0-SNAPSHOT.war'
 # alias ls='ls --color=auto'
-alias ideaIBus='ibus-daemon -rd'
-alias useFirefoxATF='sudo ln -sfnv /home/jresendiz/Software/firefox/firefox /usr/bin/firefox'
-alias restoreFirefox='sudo ln -sfnv /usr/lib/firefox/firefox.sh /usr/bin/firefox'
 ## JAVA OPTS
 #alias exportJavaOpts="export JAVA_OPTS='-server -Xms2048m -Xmx2048m -XX:PermSize=1024m -XX:MaxPermSize=1024m -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:+UseBiasedLocking'"
 # Required imports for some programs
